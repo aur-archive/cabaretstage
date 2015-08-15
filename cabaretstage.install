@@ -1,0 +1,14 @@
+post_install() {
+    echo "==> By using this software, you accept the CABAReT EULA terms:"
+    echo "  -> /usr/share/licenses/cabaretstage/EULA.pdf"
+    post_upgrade
+}
+
+post_upgrade() {
+    update-mime-database usr/share/mime > /dev/null
+    update-desktop-database -q
+}
+
+post_remove() {
+    post_upgrade
+}
